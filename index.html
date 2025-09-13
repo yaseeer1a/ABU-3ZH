@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>discord.gg/EHZTXduFm2</title>
+    <style>
+        /* --- Base styles (محافظة على ألوانك وتنسيقك) --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ff0000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 750px;
+            height: auto;
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.7);
+        }
+
+        .text {
+            margin-top: 20px;
+            font-size: 3em;
+            color: #ff1d1d;
+            text-shadow: 0px 0px 8px #ff1212, 0px 0px 15px #fb1111, 0px 0px 25px #ff1111;
+            letter-spacing: 4.5px;
+        }
+
+        .info {
+            margin-top: 20px;
+            font-size: 1.8em;
+            color: #ff0000;
+            text-shadow: 0px 0px 8px #ff0000, 0px 0px 15px #ff0000, 0px 0px 25px #ff0000;
+            letter-spacing: 4.5px;
+            white-space: pre-wrap;
+            display: inline-block;
+        }
+
+        /* --- Wave animation per-letter --- */
+        .wave {
+            display: inline-block;
+            overflow: visible;
+            white-space: nowrap;
+        }
+
+        .wave span {
+            display: inline-block;
+            transform-origin: center;
+            animation-name: wave;
+            animation-duration: 1.1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            /* uses custom property --i set by JS for delay */
+            animation-delay: calc(var(--i) * 0.08s);
+        }
+
+        @keyframes wave {
+            0%   { transform: translateY(0px) rotate(0deg); filter: blur(0px); }
+            20%  { transform: translateY(-12px) rotate(-6deg); filter: blur(.2px); }
+            40%  { transform: translateY(0px) rotate(0deg); filter: blur(0px); }
+            60%  { transform: translateY(8px) rotate(4deg); filter: blur(.1px); }
+            80%  { transform: translateY(0px) rotate(0deg); filter: blur(0px); }
+            100% { transform: translateY(0px) rotate(0deg); filter: blur(0px); }
+        }
+
+        /* subtle overall sway for the whole info block (optional) */
+        .info.sway {
+            animation: swayBlock 4s ease-in-out infinite;
+        }
+        @keyframes swayBlock {
+            0% { transform: translateX(0px); }
+            50% { transform: translateX(6px); }
+            100% { transform: translateX(0px); }
+        }
+
+        /* Responsive tweak */
+        @media (max-width: 700px) {
+            .image-container img { width: 90vw; }
+            .text { font-size: 2.2em; }
+            .info { font-size: 1.2em; letter-spacing: 2px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://media.discordapp.net/attachments/1411812590430060614/1416305024165744731/ee8fd04f718fece4bfcba01d6021eaa722a2372fr1-320-173_hq.gif" alt="Discord Image">
+    </div>
+
+    <audio autoplay loop>
+        <source src="aa.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="text">AbU 3zH is Here</div>
+
+    <!-- هنا العبارة المتحركة -->
+    <div class="info sway" id="custom-info">
+        <!-- النص الأصلي سيُقسَّم إلى حروف بواسطة الـ JS أدناه -->
+    </div>
+
+    <div class="text">GG : Ja7eem OP : discord.gg/EHZTXduFm2</div>
+
+    <script>
+        // النص اللي بدك يطلع بموجات
+        const message = "هاي شله 🔥  —  GG : Ja7eem  —  OP : discord.gg/EHZTXduFm2";
+
+        // دالة لتقسيم النص إلى حروف ووضع كل حرف في span مع ترقيم للتأخير
+        function makeWave(containerId, text) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ''; // افرغ إذا فيه شي سابق
+            const wrapper = document.createElement('span');
+            wrapper.className = 'wave';
+
+            // نمر على كل حرف ونحطه في span
+            for (let i = 0; i < text.length; i++) {
+                const ch = text[i];
+                const span = document.createElement('span');
+                span.textContent = ch;
+                // نعطي كل حرف خاصية --i لاستخدامها في delay
+                span.style.setProperty('--i', i);
+                // لو كان المسافة نخليه أصغر ارتفاع عشان الموجة مرتبة
+                if (ch === ' ') {
+                    span.style.marginRight = '4px';
+                }
+                wrapper.appendChild(span);
+            }
+
+            container.appendChild(wrapper);
+        }
+
+        // تشغيل
+        makeWave('custom-info', message);
+
+        // خيار: لو بدك تغيّر السرعة ديناميكياً
+        // مثال (غير إذا حبّيت): تغيير طول الموجة كل 5 ثواني (current: ثابت)
+    </script>
+</body>
+</html>
